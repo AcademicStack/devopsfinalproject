@@ -1,0 +1,51 @@
+services:
+    documentation:
+        image: kobucom/pandoc:local1
+        container_name: doc-final-project
+        ports:
+        - "8081:80"
+        volumes:
+        - /home/ec2-user/devopsfinalproject:/usr/local/apache2/htdocs
+        networks:
+        - final-network
+        restart: unless-stopped
+
+    database:
+        image: mysql:8.0
+        container_name: database-final-project
+        environment:
+        - MYSQL_ROOT_PASSWORD=your_secure_password_here
+        - MYSQL_DATABASE=cms
+        volumes:
+        - mysql-final-data:/var/lib/mysql
+        networks:
+        - final-network
+        restart: unless-stopped
+
+    cms:
+        image: joomla:latest
+        container_name: joomla-final-project
+        ports:
+        - "8090:80"
+        environment:
+        - JOOMLA_DB_HOST=database
+        - JOOMLA_DB_USER=root
+        - JOOMLA_DB_PASSWORD=your_secure_password_here
+        - JOOMLA_DB_NAME=cms
+        volumes:
+        - web-final-data:/var/www/html
+        depends_on:
+        - database
+        networks:
+        - final-network
+        restart: unless-stopped
+
+networks:
+    final-network:
+        driver: bridge
+
+volumes:
+    mysql-final-data:
+        driver: local
+    web-final-data:
+        driver: local
