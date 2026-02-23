@@ -39,7 +39,8 @@
 3. Enter new type (e.g., `t3.medium`) → **Change**
 4. **Instance state → Start instance**
 
-![Description](s3://devops-final-project-jc/Screenshot 2026-02-23 110144.png)
+![Description](https://devops-final-project-jc.s3.us-east-1.amazonaws.com/Screenshot%202026-02-23%20110144.png)
+
 
 ## EC2 — Connect via Browser Console
 
@@ -95,7 +96,7 @@ sudo service httpd start
 3. Uncheck **Block all public access** → acknowledge
 4. Click **Create bucket**
 
-![description](s3://devops-final-project-jc/Screenshot 2026-02-23 110949.png)
+![description](https://devops-final-project-jc.s3.us-east-1.amazonaws.com/Screenshot%202026-02-23%20110949.png)
 
 ## S3 — Bucket Policy (Public Read)
 
@@ -175,7 +176,8 @@ sudo stress --cpu 1 --timeout 120
 
 Settings → Secrets and variables → Actions → **New repository secret**
 
-![Description}(s3://devops-final-project-jc/Screenshot 2026-02-23 111535.png)
+![Description](https://devops-final-project-jc.s3.us-east-1.amazonaws.com/Screenshot%202026-02-23%20111535.png)
+
 
 | Secret Name | Value |
 |---|---|
